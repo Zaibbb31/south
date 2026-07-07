@@ -26,7 +26,7 @@ const logos = [
   // Row 5
   "/tik-tok_1.svg",
   "/integrations/snapchat.png",
-  "/Cursor.svg",
+  "/integrations/cursor.png",
   "/figma_1.svg",
 ];
 
@@ -57,11 +57,20 @@ const HexagonTile = ({ src, hasLogo }: { src?: string | null; hasLogo?: boolean 
     src.toLowerCase().includes('cursor') || 
     src.toLowerCase().includes('figma')
   );
+  const isCursor = src && src.toLowerCase().includes('cursor');
   return (
     <div className="relative group w-[74px] h-[80px] flex-shrink-0 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
       <HexagonSvg />
       {hasLogo && src && (
-        <img src={src} alt="Integration Logo" className={`w-[36px] h-[36px] object-contain relative z-10 filter drop-shadow-sm ${isBlackBg ? 'mix-blend-screen' : ''}`} />
+        <img 
+          src={src} 
+          alt="Integration Logo" 
+          className={`object-contain relative z-10 filter drop-shadow-sm ${
+            isCursor 
+              ? 'w-[32px] h-[32px]' 
+              : 'w-[36px] h-[36px]'
+          } ${isBlackBg ? 'mix-blend-screen' : ''}`} 
+        />
       )}
     </div>
   );

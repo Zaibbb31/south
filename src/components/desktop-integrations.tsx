@@ -23,7 +23,7 @@ const desktopLogos = [
   "/integrations/whatsapp.png",
   "/integrations/linkedin.png",
   "/integrations/sparkle.png",
-  "/Cursor.svg",
+  "/integrations/cursor.png",
   // Row 4 (4)
   "/integrations/zoho.png",
   "/integrations/wati.png",
@@ -58,13 +58,22 @@ const HexagonTile = ({ src, hasLogo }: { src?: string | null; hasLogo?: boolean 
     src.toLowerCase().includes('cursor') || 
     src.toLowerCase().includes('figma')
   );
+  const isCursor = src && src.toLowerCase().includes('cursor');
   return (
     <div className="relative group w-[100px] h-[110px] md:w-[130px] md:h-[143px] flex-shrink-0 flex items-center justify-center transition-transform duration-300 hover:-translate-y-2 cursor-pointer">
       <div className={`absolute inset-0 transition-opacity duration-500 ${hasLogo ? 'opacity-100' : 'opacity-40 group-hover:opacity-60'}`}>
         <HexagonSvg />
       </div>
       {hasLogo && src && (
-        <img src={src} alt="Integration Logo" className={`w-[45px] h-[45px] md:w-[60px] md:h-[60px] object-contain relative z-10 filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300 ${isBlackBg ? 'mix-blend-screen' : ''}`} />
+        <img 
+          src={src} 
+          alt="Integration Logo" 
+          className={`object-contain relative z-10 filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300 ${
+            isCursor 
+              ? 'w-[38px] h-[38px] md:w-[52px] md:h-[52px]' 
+              : 'w-[45px] h-[45px] md:w-[60px] md:h-[60px]'
+          } ${isBlackBg ? 'mix-blend-screen' : ''}`} 
+        />
       )}
     </div>
   );

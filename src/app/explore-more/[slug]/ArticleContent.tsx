@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import Link from "next/link";
 import { Article } from "@/data/articles";
 
@@ -8,9 +8,50 @@ interface ArticleContentProps {
   article: Article;
 }
 
+const parseInlineMarkdown = (text: string) => {
+  const parts = text.split("**");
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <strong key={index} className="font-bold text-[#30261C]">
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
   const [currentUrl, setCurrentUrl] = useState("");
   const [activeId, setActiveId] = useState("");
+  const mobileSliderRef = useRef<HTMLDivElement>(null);
+  const [isMobileDragging, setIsMobileDragging] = useState(false);
+  const [mobileStartX, setMobileStartX] = useState(0);
+  const [mobileScrollLeft, setMobileScrollLeft] = useState(0);
+
+  const handleMobileMouseDown = (e: React.MouseEvent) => {
+    if (!mobileSliderRef.current) return;
+    setIsMobileDragging(true);
+    setMobileStartX(e.pageX - mobileSliderRef.current.offsetLeft);
+    setMobileScrollLeft(mobileSliderRef.current.scrollLeft);
+  };
+
+  const handleMobileMouseLeave = () => {
+    setIsMobileDragging(false);
+  };
+
+  const handleMobileMouseUp = () => {
+    setIsMobileDragging(false);
+  };
+
+  const handleMobileMouseMove = (e: React.MouseEvent) => {
+    if (!isMobileDragging || !mobileSliderRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - mobileSliderRef.current.offsetLeft;
+    const walk = (x - mobileStartX) * 1.5;
+    mobileSliderRef.current.scrollLeft = mobileScrollLeft - walk;
+  };
 
   useEffect(() => {
     setCurrentUrl(window.location.href);
@@ -19,10 +60,10 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
   // Parse sections (h3 headers) for TOC
   const sections = useMemo(() => {
     return article.content
-      .split("\n\n")
-      .filter((block) => block.startsWith("###"))
-      .map((block) => {
-        const text = block.replace("###", "").trim();
+      .split("\n")
+      .filter((line) => line.trim().startsWith("###"))
+      .map((line) => {
+        const text = line.trim().replace("###", "").trim();
         const id = text
           .toLowerCase()
           .replace(/[^\w\s-]/g, "")
@@ -72,41 +113,76 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
   };
 
   const renderContent = (content: string) => {
-    return content.split("\n\n").map((block, index) => {
-      if (block.startsWith("###")) {
-        const text = block.replace("###", "").trim();
+    const lines = content.split("\n");
+    const elements: React.ReactNode[] = [];
+    let currentList: string[] = [];
+    let currentParagraph: string[] = [];
+
+    const flushParagraph = (key: string | number) => {
+      if (currentParagraph.length > 0) {
+        elements.push(
+          <p
+            key={`p-${key}`}
+            className="text-[16px] md:text-[18px] leading-[1.7] text-[#30261C]/85 mb-6 font-normal font-sans"
+          >
+            {parseInlineMarkdown(currentParagraph.join(" "))}
+          </p>
+        );
+        currentParagraph = [];
+      }
+    };
+
+    const flushList = (key: string | number) => {
+      if (currentList.length > 0) {
+        elements.push(
+          <ul key={`ul-${key}`} className="list-disc pl-6 mb-6 text-[#30261C]/80 space-y-2 text-[16px] md:text-[18px] font-normal font-sans">
+            {currentList.map((item, idx) => (
+              <li key={idx}>{parseInlineMarkdown(item)}</li>
+            ))}
+          </ul>
+        );
+        currentList = [];
+      }
+    };
+
+    lines.forEach((line, index) => {
+      const trimmed = line.trim();
+
+      if (trimmed.startsWith("###")) {
+        flushParagraph(index);
+        flushList(index);
+
+        const text = trimmed.replace("###", "").trim();
         const id = text
           .toLowerCase()
           .replace(/[^\w\s-]/g, "")
           .replace(/\s+/g, "-");
-        return (
+        elements.push(
           <h3
-            key={index}
+            key={`h3-${index}`}
             id={id}
             className="text-[22px] md:text-[26px] font-bold text-[#30261C] mt-8 mb-4 font-sans scroll-mt-28"
           >
             {text}
           </h3>
         );
-      } else if (block.startsWith("-")) {
-        const items = block.split("\n").map((li) => li.replace("-", "").trim());
-        return (
-          <ul key={index} className="list-disc pl-6 mb-6 text-[#30261C]/80 space-y-2 text-[16px] md:text-[18px] font-normal font-sans">
-            {items.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        );
+      } else if (trimmed.startsWith("-")) {
+        flushParagraph(index);
+        const itemText = trimmed.substring(1).trim();
+        currentList.push(itemText);
+      } else if (trimmed === "") {
+        flushParagraph(index);
+        flushList(index);
+      } else {
+        flushList(index);
+        currentParagraph.push(trimmed);
       }
-      return (
-        <p
-          key={index}
-          className="text-[16px] md:text-[18px] leading-[1.7] text-[#30261C]/85 mb-6 font-normal font-sans"
-        >
-          {block.trim()}
-        </p>
-      );
     });
+
+    flushParagraph("final");
+    flushList("final");
+
+    return elements;
   };
 
   return (
@@ -180,28 +256,46 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
             <span className="text-[#30261C] font-regular truncate max-w-[200px] md:max-w-xs">{article.title}</span>
           </div>
 
-          {/* Mobile Collapsible TOC */}
+          {/* Mobile Table of Contents Slider */}
           {sections.length > 0 && (
-            <div className="lg:hidden bg-white/40 border border-[#30261C]/10 rounded-[20px] p-5 mb-8">
-              <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#30261C]/60 mb-3">
-                Table of Contents
+            <div className="lg:hidden w-full mb-8">
+              <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#30261C]/60 mb-3 font-sans">
+                On This Page
               </h4>
-              <ul className="space-y-2">
-                {sections.map((sec) => (
-                  <li key={sec.id}>
+              <div
+                ref={mobileSliderRef}
+                onMouseDown={handleMobileMouseDown}
+                onMouseLeave={handleMobileMouseLeave}
+                onMouseUp={handleMobileMouseUp}
+                onMouseMove={handleMobileMouseMove}
+                className="w-full overflow-x-auto flex gap-3 pb-3 cursor-grab active:cursor-grabbing select-none scrollbar-none scroll-smooth"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {sections.map((sec) => {
+                  const isActive = activeId === sec.id;
+                  return (
                     <a
+                      key={sec.id}
                       href={`#${sec.id}`}
                       onClick={(e) => {
                         e.preventDefault();
-                        document.getElementById(sec.id)?.scrollIntoView({ behavior: "smooth" });
+                        const target = document.getElementById(sec.id);
+                        if (target) {
+                          target.scrollIntoView({ behavior: "smooth" });
+                          setActiveId(sec.id);
+                        }
                       }}
-                      className="text-[14px] text-[#ff5100] hover:underline"
+                      className={`shrink-0 px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-300 ${
+                        isActive
+                          ? "bg-[#ff5100] text-white shadow-[0_4px_15px_rgba(255,81,0,0.25)] border border-transparent"
+                          : "bg-white/40 border border-[#30261C]/15 text-[#30261C] hover:bg-white/60"
+                      }`}
                     >
                       {sec.title}
                     </a>
-                  </li>
-                ))}
-              </ul>
+                  );
+                })}
+              </div>
             </div>
           )}
 
@@ -213,7 +307,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
 
             {/* Share Post */}
             <div className="border-t border-[#30261C]/10 mt-12 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <span className="text-[14px] md:text-[16px] font-bold text-[#30261C]/70">
+              <span className="text-[14px] md:text-[16px] font-regular text-[#30261C]/70">
                 Share this insight:
               </span>
               <div className="flex items-center gap-3">
@@ -278,12 +372,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
               Get in touch with our team to discuss custom Next.js engineering, Shopify architectures, or modern digital strategies.
             </p>
             <div className="flex flex-col gap-3">
-              <a
-                href="mailto:info@southernedgemarketing.com"
-                className="w-full bg-[#ff5100] hover:bg-black text-white text-center py-3 rounded-xl font-bold text-[14px] md:text-[15px] transition-all duration-300 shadow-[0_8px_16px_rgba(255,81,0,0.2)]"
-              >
-                Email Our Team
-              </a>
+              
               <Link
                 href="/contact"
                 className="w-full border border-[#30261C]/15 hover:bg-white text-[#30261C] text-center py-3 rounded-xl font-bold text-[14px] md:text-[15px] transition-all duration-300"

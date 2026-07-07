@@ -183,6 +183,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     bentoImages.push(project.heroImage || project.image);
   }
 
+  const isWebsiteOrShopify = project.category === "Website development" || project.category === "Shopify Stores";
+  const websiteUrl = project.websiteUrl || (
+    project.slug === "ama" ? "https://amalegalsolutions.com" :
+    project.slug === "bloom" ? "https://bloomcafes.com" :
+    project.slug === "delhi-house" ? "https://delhihousecafe.com" :
+    project.slug === "farzi" ? "https://farzicafe.com" :
+    project.slug === "foire" ? "https://foire.in" :
+    project.slug === "the-fat-cookie" ? "https://thefatcookiechef.com" :
+    `https://${project.slug.replace(/_/g, "-")}.com`
+  );
+
   return (
     <div className="w-full min-h-screen bg-[#fffff0]">
       <div className="block md:hidden"><MobileNav /></div>
@@ -215,6 +226,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </span>
           ))}
         </div>
+
+        {/* View Website Button */}
+        {isWebsiteOrShopify && (
+          <div className="mb-8">
+            <a
+              href={websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 bg-[#ff5100] hover:bg-black text-white px-8 py-4 rounded-full font-bold text-[15px] tracking-wide uppercase transition-all duration-300 shadow-[0_8px_24px_rgba(255,81,0,0.15)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span>View Website</span>
+              <svg 
+                className="w-4.5 h-4.5 fill-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413Q19.825 21 19 21Zm4.7-6.3-1.4-1.4L16.6 5H13V3h7v7h-2V6.4Z" />
+              </svg>
+            </a>
+          </div>
+        )}
 
         {/* Hero Image Showcase */}
         <div className="w-full aspect-[16/10] md:aspect-[14/8] rounded-[24px] lg:rounded-[36px] overflow-hidden bg-[#30261C]/5 shadow-[0_4px_30px_rgba(0,0,0,0.02)] mb-16 md:mb-20 relative group">
@@ -272,11 +303,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 <span className="block text-[11px] text-[#30261C]/40 uppercase tracking-widest mb-1.5 font-bold">Duration</span>
                 <span className="text-[16px] md:text-[18px] font-medium text-[#30261C]">{project.duration}</span>
               </div>
-              {project.websiteUrl && (
+              {(project.websiteUrl || isWebsiteOrShopify) && (
                 <div>
                   <span className="block text-[11px] text-[#30261C]/40 uppercase tracking-widest mb-1.5 font-bold">Website</span>
                   <a 
-                    href={project.websiteUrl} 
+                    href={websiteUrl} 
                     target="_blank" 
                     rel="noreferrer" 
                     className="text-[16px] md:text-[18px] font-medium text-[#ff5100] hover:underline flex items-center gap-1"
