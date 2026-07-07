@@ -5,7 +5,7 @@ import { MobileFooter } from "@/components/mobile-footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Design N Code",
+  title: "Terms & Conditions | Southern Edge Marketing",
   description: "Terms and conditions governing our software partnership.",
 };
 
@@ -30,21 +30,21 @@ export default function Terms() {
         <section className="mb-10">
           <h2 className="text-2xl font-semibold text-[#0f0f0f] mb-4">Service Agreement Principles</h2>
           <p className="text-[#555] leading-relaxed mb-4">
-            Welcome to the development services platform of Design N Code. By contracting our team for custom Next.js development, e-commerce engineering, headless architectures, or user experience design, you consent to comply with the terms set forth below. These terms regulate our delivery standards, code handoff conditions, payment structures, and legal rights.
+            Welcome to the development services platform of <span className="font-bold">Southern Edge Marketing</span>. By contracting our team for custom Next.js development, e-commerce engineering, headless architectures, or user experience design, you consent to comply with the terms set forth below. These terms regulate our delivery standards, code handoff conditions, payment structures, and legal rights.
           </p>
         </section>
 
         <section className="mb-10">
           <h2 className="text-2xl font-semibold text-[#0f0f0f] mb-4">1. Agreement to Terms</h2>
           <p className="text-[#555] leading-relaxed mb-4">
-            By accessing our website, contracting our software development services, or registering for client portals provided by Design N Code, you agree to be fully bound by these Terms & Conditions. If you do not agree to all provisions within this document, you are explicitly prohibited from using our site and services and must cease interaction immediately.
+            By accessing our website, contracting our software development services, or registering for client portals provided by <span className="font-bold">Southern Edge Marketing</span>, you agree to be fully bound by these Terms & Conditions. If you do not agree to all provisions within this document, you are explicitly prohibited from using our site and services and must cease interaction immediately.
           </p>
         </section>
 
         <section className="mb-10">
           <h2 className="text-2xl font-semibold text-[#0f0f0f] mb-4">2. Intellectual Property Rights</h2>
           <p className="text-[#555] leading-relaxed mb-4">
-            Unless otherwise specified in custom project agreement riders, all creative assets, proprietary source codebases, visual elements, graphics, user interface designs, and architectural frameworks engineered by Design N Code are our exclusive intellectual property. Client deliverables (such as compiled final HTML, CSS, custom Next.js builds, or Shopify configurations) are transferred to client ownership only upon receipt of complete and final project milestone payments.
+            Unless otherwise specified in custom project agreement riders, all creative assets, proprietary source codebases, visual elements, graphics, user interface designs, and architectural frameworks engineered by <span className="font-bold">Southern Edge Marketing</span> are our exclusive intellectual property. Client deliverables (such as compiled final HTML, CSS, custom Next.js builds, or Shopify configurations) are transferred to client ownership only upon receipt of complete and final project milestone payments.
           </p>
         </section>
 
@@ -58,7 +58,7 @@ export default function Terms() {
         <section className="mb-10">
           <h2 className="text-2xl font-semibold text-[#0f0f0f] mb-4">4. Limitation of Liability</h2>
           <p className="text-[#555] leading-relaxed mb-4">
-            Under no circumstances shall Design N Code, its developers, directors, or partners be liable for any indirect, consequential, special, or punitive damages—including lost business profits, data leakage, hosting service disruptions, or hardware malfunctions—arising from the use of our services or developed code bases. Our absolute maximum cumulative liability shall not exceed the total fees paid by the client under their respective service contract.
+            Under no circumstances shall <span className="font-bold">Southern Edge Marketing</span>, its developers, directors, or partners be liable for any indirect, consequential, special, or punitive damages—including lost business profits, data leakage, hosting service disruptions, or hardware malfunctions—arising from the use of our services or developed code bases. Our absolute maximum cumulative liability shall not exceed the total fees paid by the client under their respective service contract.
           </p>
         </section>
 
@@ -70,7 +70,7 @@ export default function Terms() {
         </section>
 
         <p className="text-sm text-[#828282] mt-16 pt-8 border-t border-black/10">
-          © 2026 Design N Code. All corporate rights reserved. Registered development partner code: DNC-TERMS-2026-V1.
+          © 2026 Southern Edge Marketing. All corporate rights reserved. Registered development partner code: SEM-TERMS-2026-V1.
         </p>
       </main>
 

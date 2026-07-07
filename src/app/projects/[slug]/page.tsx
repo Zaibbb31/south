@@ -6,6 +6,8 @@ import { DesktopFooter } from "@/components/desktop-footer";
 import { MobileFooter } from "@/components/mobile-footer";
 import { Cta } from "@/components/cta";
 import { ProjectGallerySlider } from "@/components/project-gallery-slider";
+import { DesktopFaq } from "@/components/desktop-faq";
+import { MobileFaq } from "@/components/mobile-faq";
 import fs from "fs";
 import path from "path";
 
@@ -80,6 +82,26 @@ function getProjectExecutionText(slug: string, title: string, category: string):
     case "jsv":
     case "jsc":
       return "We executed the JSV Branding project by establishing a cohesive visual language and brand system. We focused on typography pairings, color harmonies, and clean editorial compositions to design high-fidelity collateral, packaging details, and stationery. The resulting design provides a premium and modern brand presence across all public-facing media.";
+    case "sexsea":
+      return "The website was crafted with a clean visual hierarchy, engaging product storytelling, and intuitive navigation to highlight skincare and haircare collections. Focus was placed on mobile responsiveness, conversion-focused product pages, promotional sections, trust-building content, and a frictionless shopping journey. Every interaction was optimized to reinforce the brand's premium identity while encouraging product exploration and purchases.";
+    case "bunt":
+      return "The website was developed with a minimal yet sophisticated interface that emphasizes premium craftsmanship and thoughtful storytelling. Carefully structured product pages, lifestyle imagery, intuitive navigation, and responsive layouts create an engaging browsing experience while communicating the brand's focus on quality, comfort, and timeless design for modern pet owners.";
+    case "the-fat-cookie":
+      return "The platform was designed with vibrant product displays, intuitive category organization, and an effortless purchasing flow. Interactive product pages, bundle-building functionality, responsive layouts, and strong visual storytelling work together to create an engaging shopping experience while highlighting the freshness and uniqueness of every cookie collection.";
+    case "kamal":
+      return "The platform features structured vehicle listings, service information, responsive layouts, and streamlined navigation to simplify customer interactions. Strong visual hierarchy, optimized content sections, and clear calls to action ensure visitors can efficiently explore inventory, learn about services, and make inquiries with confidence.";
+    case "kitchun":
+      return "The website was structured with immersive visuals, organized project galleries, intuitive navigation, and responsive layouts. Clean typography, minimal aesthetics, and carefully planned user flows help visitors explore the portfolio, understand the studio's services, and connect effortlessly through strategically placed contact touchpoints.";
+    case "bloom":
+      return "The website was built with an inviting visual style, intuitive navigation, responsive layouts, and engaging imagery. Dedicated sections for menu highlights, brand story, locations, and contact information create a seamless browsing experience while reflecting the café's warm and contemporary identity.";
+    case "ama":
+      return "The platform was designed with a structured information architecture, clear service pages, responsive layouts, and conversion-focused call-to-actions. Clean typography, intuitive navigation, and trust-building elements ensure visitors can understand legal services, submit inquiries, and connect with experts effortlessly.";
+    case "foire":
+      return "The website emphasizes refined visuals, intuitive product categorization, responsive layouts, and streamlined purchasing flows. Carefully crafted interfaces, engaging product displays, and consistent branding help customers browse collections effortlessly while delivering a polished shopping experience across all devices.";
+    case "delhi-house":
+      return "The website was designed with immersive food photography, intuitive navigation, responsive layouts, and a clean content structure. Dedicated sections for the menu, brand story, gallery, and contact information create an enjoyable browsing experience while reflecting the café's vibrant atmosphere and modern identity.";
+    case "honk":
+      return "The platform combines elegant layouts, immersive imagery, responsive design, and intuitive navigation to present the property's offerings seamlessly. Carefully organized content, booking touchpoints, and visual storytelling create a sophisticated user experience while communicating the brand's heritage, comfort, and exclusivity.";
     default:
       return `Our team worked closely with the client to bring the ${title} ${category} project to life. We implemented best-in-class industry workflows, optimized assets for digital distribution, and delivered a cohesive presentation matching modern branding principles.`;
   }
@@ -114,6 +136,26 @@ function getProjectAfterEffectText(slug: string, title: string, category: string
     case "jsv":
     case "jsc":
       return "Following the launch of the JSV brand identity, the client reported a 45% increase in brand recognition and a significant uplift in corporate partner engagement. The structured style guide and professional assets successfully repositioned JSV as a market-leading authority in creative and modern presentation.";
+    case "sexsea":
+      return "The final experience strengthened the brand's premium positioning while making product discovery and purchasing more intuitive. A refined interface, improved navigation, and engaging presentation created a trustworthy shopping experience that encourages customer confidence and repeat visits.";
+    case "bunt":
+      return "The completed platform elevated the online shopping experience through premium visuals, streamlined navigation, and stronger product presentation. The refined digital presence reinforces brand credibility while helping customers confidently discover and purchase luxury pet furniture.";
+    case "the-fat-cookie":
+      return "The final website delivers an enjoyable shopping experience that enhances product discovery and supports online sales. A clean interface, engaging visuals, and simplified ordering process help strengthen customer trust while reinforcing the brand's fun and premium identity.";
+    case "kamal":
+      return "The completed website improves accessibility to inventory and dealership information while establishing a stronger digital presence. Better organization and intuitive navigation create a smoother customer journey that supports engagement and lead generation.";
+    case "kitchun":
+      return "The finished website strengthens the studio's online presence with a premium visual identity and seamless browsing experience. Enhanced project presentation and clear communication encourage inquiries while reinforcing credibility among prospective residential and commercial clients.";
+    case "bloom":
+      return "The final website strengthens the café's online presence through improved accessibility, consistent branding, and an engaging user experience. Visitors can easily explore offerings, connect with the brand, and discover locations with confidence.";
+    case "ama":
+      return "The redesigned experience enhances credibility, improves service discoverability, and streamlines client engagement. A modern interface combined with simplified navigation supports higher user confidence while reinforcing the firm's professional digital identity.";
+    case "foire":
+      return "The completed platform elevates the brand's online presence with stronger product visibility and an intuitive customer journey. Improved usability, premium aesthetics, and optimized shopping experiences contribute to greater customer trust and engagement.";
+    case "delhi-house":
+      return "The completed platform strengthens the café's online visibility with a refined visual experience and simplified customer journey. Improved accessibility, engaging content, and clear calls to action help increase customer engagement and reinforce the brand's premium positioning.";
+    case "honk":
+      return "The final website enhances the property's digital presence with stronger visual storytelling and a streamlined browsing experience. A polished interface, improved content organization, and premium branding encourage visitor inquiries while strengthening credibility and guest confidence.";
     default:
       return `The ${title} ${category} project delivered excellent metrics, strengthening the brand's position and demonstrating outstanding return on creative investment.`;
   }
@@ -268,8 +310,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </main>
 
       <div style={{ zoom: 0.8 }}><Cta /></div>
-      <div className="block md:hidden" style={{ zoom: 0.8 }}><MobileFooter /></div>
-      <div className="hidden md:block" style={{ zoom: 0.8 }}><DesktopFooter /></div>
+      <div className="hidden md:block" style={{ zoom: 0.8 }}>
+        <DesktopFaq />
+        <DesktopFooter />
+      </div>
+      <div className="md:hidden" style={{ zoom: 0.8 }}>
+        <MobileFaq />
+        <MobileFooter />
+      </div>
     </div>
   );
 }

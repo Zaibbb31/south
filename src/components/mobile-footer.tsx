@@ -21,7 +21,7 @@ export const MobileFooter = () => {
       </div>
 
       {/* Email Callout */}
-      <div className="flex flex-col items-end text-right mb-6 pr-2">
+      <div className="flex flex-col items-start text-right mb-6 pr-2">
         <p className="text-[16px] font-medium text-black/65 mb-1 font-sans">
           Let's Build Something Great
         </p>
@@ -33,9 +33,9 @@ export const MobileFooter = () => {
 
 
       {/* Navigation */}
-      <div className="flex flex-col items-end text-right mb-6 pr-2">
+      <div className="flex flex-col items-start text-right mb-6 pr-2">
         <p className="text-[25px] text-black/65 mb-4 font-sans">Navigation</p>
-        <nav className="flex flex-col items-end gap-3">
+        <nav className="flex flex-col items-start gap-3">
           <Link href="/" className="text-[16px] text-black leading-none font-sans hover:-translate-x-2 transition-transform duration-300 w-fit">
             Home
           </Link>
@@ -55,9 +55,9 @@ export const MobileFooter = () => {
       </div>
 
       {/* Social */}
-      <div className="flex flex-col items-end text-right mb-6 pr-2">
+      <div className="flex flex-col items-start text-right mb-6 pr-2">
         <p className="text-[25px] text-black/65 mb-4 font-sans">Social</p>
-        <nav className="flex flex-col items-end gap-3">
+        <nav className="flex flex-col items-start  gap-3">
           {["Instagram", "LinkedIn", "X"].map((item) => (
             <a key={item} href="/contact" className="text-[16px] text-black leading-none font-sans hover:-translate-x-2 transition-transform duration-300 w-fit">
               {item}
@@ -67,7 +67,7 @@ export const MobileFooter = () => {
       </div>
 
       {/* Legal Links Row */}
-      <div className="flex flex-row items-center gap-6 mt-8 mb-4 w-full pl-1">
+      <div className="flex flex-row items-start gap-6 mt-8 mb-4 w-full pl-1">
         <Link href="/terms" className="text-[16px] text-black leading-none font-sans hover:underline">
           Terms & Conditions
         </Link>

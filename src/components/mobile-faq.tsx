@@ -52,11 +52,11 @@ export const MobileFaq = () => {
       answer: "We work with ambitious brands and businesses looking to scale their digital presence through strategic design and marketing."
     },
     {
-      question: "Who do you usually work with?",
+      question: "How long does a project take?",
       answer: "Most website projects take 4-8 weeks from kickoff to launch, depending on complexity and features required."
     },
     {
-      question: "Who do you usually work with?",
+      question: "Do you offer ongoing support?",
       answer: "Yes, we offer monthly retainers for SEO, marketing, and website maintenance to ensure your continued growth."
     }
   ];

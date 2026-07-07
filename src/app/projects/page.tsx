@@ -4,6 +4,8 @@ import { DesktopNav } from "@/components/desktop-nav";
 import { DesktopFooter } from "@/components/desktop-footer";
 import { Cta } from "@/components/cta";
 import { ProjectsGrid } from "@/components/projects-grid";
+import { DesktopFaq } from "@/components/desktop-faq";
+import { MobileFaq } from "@/components/mobile-faq";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,8 +27,14 @@ export default function ProjectsPage() {
 
       {/* Footer & CTA */}
       <div style={{ zoom: 0.8 }}><Cta /></div>
-      <div className="block md:hidden" style={{ zoom: 0.8 }}><MobileFooter /></div>
-      <div className="hidden md:block" style={{ zoom: 0.8 }}><DesktopFooter /></div>
+      <div className="hidden md:block" style={{ zoom: 0.8 }}>
+        <DesktopFaq />
+        <DesktopFooter />
+      </div>
+      <div className="md:hidden" style={{ zoom: 0.8 }}>
+        <MobileFaq />
+        <MobileFooter />
+      </div>
     </div>
   );
 }
