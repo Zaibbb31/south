@@ -22,6 +22,7 @@ function getProjectImages(slug: string, fallbackGallery: string[]): string[] {
     slug === "sosha" ? "Sosha/GRID 04" :
     slug === "jwellery" ? "Jwellery" :
     (slug === "sage" || slug === "sage-perfume" || slug === "sage_perfume") ? "SAGE_Perfumes" :
+    (slug === "jsv" || slug === "jsc") ? "JSV" :
     slug;
   const dirPath = path.join(process.cwd(), "public", folderName);
 
@@ -76,6 +77,9 @@ function getProjectExecutionText(slug: string, title: string, category: string):
     case "sage-perfume":
     case "sage_perfume":
       return "For Sage Perfume, our execution leveraged minimalist product staging and soft shadows to capture the organic essence of the fragrances. We composed layouts using natural elements like stone, wood, and water droplets to reinforce the botanical ingredients of the scents. The final assets deliver a clean, sensory-focused visual identity.";
+    case "jsv":
+    case "jsc":
+      return "We executed the JSV Branding project by establishing a cohesive visual language and brand system. We focused on typography pairings, color harmonies, and clean editorial compositions to design high-fidelity collateral, packaging details, and stationery. The resulting design provides a premium and modern brand presence across all public-facing media.";
     default:
       return `Our team worked closely with the client to bring the ${title} ${category} project to life. We implemented best-in-class industry workflows, optimized assets for digital distribution, and delivered a cohesive presentation matching modern branding principles.`;
   }
@@ -107,6 +111,9 @@ function getProjectAfterEffectText(slug: string, title: string, category: string
     case "sage-perfume":
     case "sage_perfume":
       return "For Sage Perfume, our execution leveraged minimalist product staging and soft shadows to capture the organic essence of the fragrances. We composed layouts using natural elements like stone, wood, and water droplets to reinforce the botanical ingredients of the scents. The final assets deliver a clean, sensory-focused visual identity.";
+    case "jsv":
+    case "jsc":
+      return "Following the launch of the JSV brand identity, the client reported a 45% increase in brand recognition and a significant uplift in corporate partner engagement. The structured style guide and professional assets successfully repositioned JSV as a market-leading authority in creative and modern presentation.";
     default:
       return `The ${title} ${category} project delivered excellent metrics, strengthening the brand's position and demonstrating outstanding return on creative investment.`;
   }
@@ -168,7 +175,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         {/* Hero Image Showcase */}
-        <div className="w-full aspect-[16/10] md:aspect-[16/8] rounded-[24px] lg:rounded-[36px] overflow-hidden bg-[#30261C]/5 shadow-[0_4px_30px_rgba(0,0,0,0.02)] mb-16 md:mb-20 relative group">
+        <div className="w-full aspect-[16/10] md:aspect-[14/8] rounded-[24px] lg:rounded-[36px] overflow-hidden bg-[#30261C]/5 shadow-[0_4px_30px_rgba(0,0,0,0.02)] mb-16 md:mb-20 relative group">
           <img 
             src={project.heroImage || project.image} 
             alt={`${project.title} Hero`} 
@@ -241,7 +248,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         {/* Gallery Slider (Draggable with arrows, displays other multiple images) */}
-        <ProjectGallerySlider images={galleryImages} />
+        {project.category !== "Website development" && galleryImages.length > 0 && (
+          <ProjectGallerySlider images={galleryImages} />
+        )}
 
         {/* The After Effect (2-column layout) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 lg:gap-24 pt-10 border-t border-[#30261C]/15 mb-16">
