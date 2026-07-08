@@ -116,9 +116,25 @@ export const MobileContactForm = () => {
         <input name="projectDetails" type="text" required className="w-full bg-transparent outline-none text-[16px] text-black" />
       </div>
 
-      <button disabled={loading} type="submit" className="w-full mt-2 bg-gradient-to-b from-[#ff5100] to-[#e64700] rounded-full py-3 flex items-center justify-center gap-[6px] shadow-[0_4px_15px_rgba(255,81,0,0.3)] hover:scale-[1.02] transition-transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed">
-        {!loading && <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />}
-        <span className="text-[20px] font-medium text-white shadow-inner tracking-wide">{loading ? "Sending..." : "Get in touch"}</span>
+      <button 
+        disabled={loading} 
+        type="submit" 
+        className="w-full mt-2 relative h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {/* Inner Left Pill with right shadow */}
+        <div className="absolute left-[0px] top-0 w-[calc(100%-60px)] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
+          {!loading && <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />}
+          <span className="font-medium text-[18px] text-white tracking-tight whitespace-nowrap">
+            {loading ? "Sending..." : "Get in touch"}
+          </span>
+        </div>
+        
+        {/* Right Arrow Icon */}
+        <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
+          <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+          </svg>
+        </div>
       </button>
     </form>
   );
@@ -183,9 +199,25 @@ export const DesktopContactForm = () => {
         <input name="projectDetails" type="text" required className="w-full bg-transparent outline-none text-[18px] text-black" />
       </div>
 
-      <button disabled={loading} type="submit" className="w-full mt-4 bg-gradient-to-b from-[#ff5100] to-[#e64700] rounded-full py-4 flex items-center justify-center gap-[6px] shadow-[0_6px_20px_rgba(255,81,0,0.3)] hover:scale-[1.01] transition-transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed">
-        {!loading && <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />}
-        <span className="text-[20px] lg:text-[24px] font-medium text-white shadow-inner tracking-wide">{loading ? "Sending..." : "Get in touch"}</span>
+      <button 
+        disabled={loading} 
+        type="submit" 
+        className="w-full mt-4 relative h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {/* Inner Left Pill with right shadow */}
+        <div className="absolute left-[0px] top-0 w-[calc(100%-60px)] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
+          {!loading && <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />}
+          <span className="font-medium text-[18px] lg:text-[20px] text-white tracking-tight whitespace-nowrap">
+            {loading ? "Sending..." : "Get in touch"}
+          </span>
+        </div>
+        
+        {/* Right Arrow Icon */}
+        <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
+          <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+          </svg>
+        </div>
       </button>
     </form>
   );

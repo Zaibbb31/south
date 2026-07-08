@@ -234,15 +234,23 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               href={websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 bg-[#ff5100] hover:bg-black text-white px-8 py-4 rounded-full font-bold text-[15px] tracking-wide uppercase transition-all duration-300 shadow-[0_8px_24px_rgba(255,81,0,0.15)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:translate-y-0"
+              className="relative inline-flex w-[222px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer"
+              aria-label="View Website"
             >
-              <span>View Website</span>
-              <svg 
-                className="w-4.5 h-4.5 fill-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413Q19.825 21 19 21Zm4.7-6.3-1.4-1.4L16.6 5H13V3h7v7h-2V6.4Z" />
-              </svg>
+              {/* Inner Left Pill with right shadow */}
+              <div className="absolute left-[0px] top-0 w-[157px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
+                <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
+                <span className="font-medium text-[18px] text-white tracking-tight whitespace-nowrap">
+                  View Website
+                </span>
+              </div>
+              
+              {/* Right Arrow Icon */}
+              <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
+                <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </div>
             </a>
           </div>
         )}

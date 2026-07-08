@@ -87,9 +87,24 @@ export const Cta = () => {
                   </div>
                   
                   <Link href="/contact" className="w-full mt-2">
-                    <button className="bg-[#ff5100] text-white rounded-[82px] py-[15px] md:py-[18px] px-[35px] flex items-center justify-center gap-[6px] w-full hover:bg-[#e64700] transition-colors">
-                      <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
-                      <span className="font-semibold text-[20px] md:text-[24px] leading-[20px] md:leading-[24px] whitespace-nowrap tracking-normal">Start Now</span>
+                    <button 
+                      className="relative w-full h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer"
+                      aria-label="Start Now"
+                    >
+                      {/* Inner Left Pill with right shadow */}
+                      <div className="absolute left-[0px] top-0 w-[calc(100%-60px)] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
+                        <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
+                        <span className="font-medium text-[18px] md:text-[20px] text-white tracking-tight whitespace-nowrap">
+                          Start Now
+                        </span>
+                      </div>
+                      
+                      {/* Right Arrow Icon */}
+                      <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
+                        <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                      </div>
                     </button>
                   </Link>
                 </div>

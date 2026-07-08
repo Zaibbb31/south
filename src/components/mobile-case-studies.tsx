@@ -72,14 +72,22 @@ export const MobileCaseStudies = () => {
         {/* Explore Projects Button */}
         <Link href="/projects" className="pointer-events-auto">
           <button 
-            className="flex items-center justify-center gap-2.5 w-[200px] h-[52px] rounded-full bg-gradient-to-r from-[#ff5100] to-[#ff7300] shadow-[0_4px_14px_rgba(255,81,0,0.4)] hover:shadow-[0_8px_24px_rgba(255,81,0,0.6)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
-            aria-label="Explore Projects"
+            className="relative w-[222px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer"
+            aria-label="Explore Projects here"
           >
-            <span className="font-semibold text-[15px] text-white tracking-wide">
-              Explore Projects
-            </span>
-            <div className="transform group-hover:translate-x-1.5 transition-transform duration-300">
-              <ArrowRightIcon />
+            {/* Inner Left Pill with right shadow */}
+            <div className="absolute left-[0px] top-0 w-[165px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
+              <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
+              <span className="font-medium text-[13px] text-white tracking-tight whitespace-nowrap">
+                Explore Projects here
+              </span>
+            </div>
+            
+            {/* Right Arrow Icon */}
+            <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
+              <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>
             </div>
           </button>
         </Link>
