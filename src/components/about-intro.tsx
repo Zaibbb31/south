@@ -37,7 +37,7 @@ export function AboutIntro() {
   };
 
   return (
-    <section className="w-full bg-[#fffff0] px-4 pt-8 pb-8 md:pt-12 md:pb-12 flex justify-center overflow-hidden">
+    <section className="w-full bg-[#fffff0] px-4 pt-2 pb-8 md:pt-0 md:pb-12 flex justify-center overflow-hidden">
       <div className="max-w-[1200px] w-full flex flex-col items-start">
         <div className="w-full">
           {/* Label */}
