@@ -27,10 +27,10 @@ export function MobileNav() {
         {/* Logo */}
         <Link href="/">
           <Image
-            src="/SEM LOGO.svg"
+            src="/sem_color.svg"
             alt="SEM Logo"
-            width={36}
-            height={36}
+            width={42}
+            height={42}
             className="h-9 w-9 cursor-pointer transition-transform hover:scale-105"
           />
         </Link>
