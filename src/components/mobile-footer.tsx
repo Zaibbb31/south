@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { articles } from "@/data/articles";
+import { services } from "@/data/services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebookF, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
@@ -71,39 +72,24 @@ export const MobileFooter = () => {
         <div className="flex flex-col gap-4">
           <h3 className="text-[16px] font-bold text-white tracking-wide">Capabilities</h3>
           <ul className="flex flex-col gap-2.5">
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">Website Platforms</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">E-Commerce Platforms</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">Brand Systems</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">Search Engine Optimisation</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">Paid Advertising</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">AI & Automation Systems</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors duration-300">Growth Partner Program</Link></li>
+            {services.map((service) => (
+              <li key={service.slug}>
+                <Link href={`/services/${service.slug}`} className="hover:text-white transition-colors duration-300">
+                  {service.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         
-        {/* Industries */}
-        <div className="flex flex-col gap-4">
-          <h3 className="text-[16px] font-bold text-white tracking-wide">Industries</h3>
-          <ul className="flex flex-col gap-2.5">
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Real Estate</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Professional Services</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Ecommerce</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Hospitality & Lifestyle</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Corporate & B2B</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Yachts & Charter</Link></li>
-          </ul>
-        </div>
-
         {/* Company */}
         <div className="flex flex-col gap-4">
           <h3 className="text-[16px] font-bold text-white tracking-wide">Company</h3>
           <ul className="flex flex-col gap-2.5">
-            <li><Link href="/about" className="hover:text-white transition-colors duration-300">About</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Work</Link></li>
-            <li><Link href="/blogs" className="hover:text-white transition-colors duration-300">Insights</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Careers</Link></li>
-            <li><Link href="/blogs" className="hover:text-white transition-colors duration-300">Press & Media</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Referral Partners</Link></li>
+            <li><Link href="/about" className="hover:text-white transition-colors duration-300">About Us</Link></li>
+            <li><Link href="/projects" className="hover:text-white transition-colors duration-300">Projects</Link></li>
+            <li><Link href="/blogs" className="hover:text-white transition-colors duration-300">Services</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Blogs</Link></li>
           </ul>
         </div>
 
@@ -112,9 +98,8 @@ export const MobileFooter = () => {
           <h3 className="text-[16px] font-bold text-white tracking-wide">Locations</h3>
           <ul className="flex flex-col gap-2.5">
             <li><Link href="/contact" className="hover:text-white transition-colors duration-300">All Locations</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Delhi</Link></li>
             <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Dubai</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Manchester</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors duration-300">Miami</Link></li>
           </ul>
         </div>
       </div>
@@ -123,25 +108,17 @@ export const MobileFooter = () => {
       <div className="flex flex-col gap-4 mb-8 pt-6 border-t border-white/10 text-[15px]">
         <h3 className="text-[16px] font-bold text-white tracking-wide">Contact</h3>
         <div className="flex flex-col gap-3">
-          <a href="tel:+971521042752" className="hover:text-white transition-colors duration-300 flex items-center gap-2">
-            <span className="font-semibold text-white/50 text-[13px] tracking-wider">AE</span>
-            <span>+971 52 1042 752</span>
-          </a>
-          <a href="tel:+447870699554" className="hover:text-white transition-colors duration-300 flex items-center gap-2">
-            <span className="font-semibold text-white/50 text-[13px] tracking-wider">GB</span>
-            <span>+44 7870 699 554</span>
-          </a>
-          <a href="https://wa.me/971521042752" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 flex items-center gap-2 mt-1">
+          <a href="https://wa.me/919899238237" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 flex items-center gap-2 mt-1">
             <WhatsAppIcon />
             <span>Start a conversation</span>
           </a>
-          <a href="mailto:hello@seven52.agency" className="hover:text-white transition-colors duration-300 flex items-center gap-2">
+          <a href="mailto:info@southernedgemarketing.com" className="hover:text-white transition-colors duration-300 flex items-center gap-2">
             <EnvelopeIcon />
-            <span>hello@seven52.agency</span>
+            <span>info@southernedgemarketing.com</span>
           </a>
           <div className="flex items-start gap-2 text-white/80">
             <span className="mt-0.5 shrink-0"><MapPinIcon /></span>
-            <span className="leading-tight">Dubai, UAE • Manchester, UK</span>
+            <span className="leading-tight">Dubai, UAE • Delhi, INDIA</span>
           </div>
         </div>
         

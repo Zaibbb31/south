@@ -185,27 +185,35 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="hidden md:block"><DesktopNav /></div>
 
       <main className="w-full pt-32 lg:pt-48 px-6 lg:px-[90px] pb-24">
-        {/* Massive Title */}
-        <h1 className="text-[50px] lg:text-[110px] xl:text-[130px] font-medium leading-[1] text-[#30261C] uppercase tracking-tighter mb-8 lg:mb-12">
-          {project.title}
-        </h1>
+        {/* Header Title & Visit Website Button */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 lg:mb-12 border-b border-[#30261C]/10 pb-6 lg:pb-8">
+          <h1 className="text-[50px] lg:text-[110px] xl:text-[130px] font-medium leading-[1] text-[#30261C] uppercase tracking-tighter">
+            {project.title}
+          </h1>
 
-        {/* Visit Website Button */}
-        {project.websiteUrl && (
-          <div className="mb-12">
-            <a 
-              href={project.websiteUrl} 
-              target="_blank" 
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#30261C] hover:bg-[#ff5100] text-white rounded-full transition-all duration-300 font-semibold text-[15px] tracking-wide shadow-md hover:shadow-lg active:scale-[0.98]"
-            >
-              VISIT WEBSITE <span className="text-[18px]">↗</span>
-            </a>
-          </div>
-        )}
+          {(() => {
+            const categoryLower = project.category.toLowerCase();
+            const isWebOrShopifyDev = categoryLower.includes("website") || categoryLower.includes("shopify");
+            if (isWebOrShopifyDev) {
+              return (
+                <div className="mb-2 shrink-0">
+                  <a 
+                    href={project.websiteUrl || `https://${project.slug}.com`} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#30261C] hover:bg-[#ff5100] text-white rounded-full transition-all duration-300 font-semibold text-[15px] tracking-wide shadow-md hover:shadow-lg active:scale-[0.98]"
+                  >
+                    VISIT WEBSITE <span className="text-[18px]">↗</span>
+                  </a>
+                </div>
+              );
+            }
+            return null;
+          })()}
+        </div>
 
         {/* Hero Image */}
-        <div className="w-full aspect-[16/9] md:h-[600px] md:aspect-auto rounded-[24px] lg:rounded-[36px] overflow-hidden mb-16 lg:mb-24 bg-[#30261C]/5 relative shadow-md">
+        <div className="w-full aspect-[12/8] md:h-[800px] md:aspect-auto rounded-[24px] lg:rounded-[36px] overflow-hidden mb-16 lg:mb-24 bg-[#30261C]/5 relative shadow-md">
           <img 
             src={project.heroImage || project.image} 
             alt={`${project.title} Hero`} 

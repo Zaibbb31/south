@@ -15,7 +15,7 @@ export function WhatsappWidget() {
       
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/971521042752"
+        href="https://wa.me/919899238237"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:scale-110 transition-transform duration-300"

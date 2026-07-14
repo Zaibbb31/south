@@ -86,22 +86,23 @@ export const ProjectsGrid = () => {
       </h1>
 
       {/* Filter Dropdown Container */}
-      <div ref={dropdownRef} className="relative z-50 mb-12 md:mb-16">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-between w-full sm:w-[340px] px-6 py-4 bg-white border border-[#30261C]/15 rounded-full text-[#30261C] text-[15px] md:text-[16px] font-bold tracking-wide shadow-sm hover:border-[#ff5100] transition-all duration-300 focus:outline-none cursor-pointer group"
-        >
-          <span className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5100] animate-pulse" />
-            <span className="text-[#30261C]/50 text-[13px] uppercase tracking-wider font-semibold">Filter:</span>
-            <span className="text-[#30261C]">{selectedCategory}</span>
-          </span>
-          <div className="flex items-center gap-2">
-            <span className="text-[12px] font-semibold bg-[#30261C]/5 text-[#30261C]/60 px-2 py-0.5 rounded-full">
-              {getCategoryCount(selectedCategory)}
-            </span>
+      <div ref={dropdownRef} className="relative z-50 mb-12 md:mb-16 w-fit">
+        <div className="flex items-center gap-3">
+          {/* Pill Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="h-[52px] md:h-[56px] min-w-[130px] px-8 flex items-center justify-center rounded-full bg-gradient-to-r from-[#ff6a00] to-[#ff3c00] text-white text-[16px] md:text-[17px] font-bold tracking-wide shadow-[0_10px_25px_rgba(255,81,0,0.3)] hover:shadow-[0_14px_28px_rgba(255,81,0,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 focus:outline-none cursor-pointer"
+          >
+            {selectedCategory}
+          </button>
+
+          {/* Circle Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-[52px] h-[52px] md:w-[56px] md:h-[56px] flex items-center justify-center rounded-full bg-gradient-to-r from-[#ff6a00] to-[#ff3c00] text-white shadow-[0_10px_25px_rgba(255,81,0,0.3)] hover:shadow-[0_14px_28px_rgba(255,81,0,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 focus:outline-none cursor-pointer shrink-0"
+          >
             <svg
-              className={`w-5 h-5 text-[#30261C]/40 transition-transform duration-300 group-hover:text-[#ff5100] ${
+              className={`w-5 h-5 text-white transition-transform duration-300 ${
                 isOpen ? "rotate-180" : ""
               }`}
               fill="none"
@@ -109,10 +110,10 @@ export const ProjectsGrid = () => {
               strokeWidth="2.5"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m0 0l-5-5m5 5l5-5" />
             </svg>
-          </div>
-        </button>
+          </button>
+        </div>
 
         <AnimatePresence>
           {isOpen && (
@@ -121,7 +122,7 @@ export const ProjectsGrid = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-0 mt-3 w-full sm:w-[340px] bg-white border border-[#30261C]/15 rounded-[24px] shadow-[0_16px_40px_rgba(48,38,28,0.12)] z-50 overflow-hidden py-3"
+              className="absolute left-0 mt-3 w-[300px] sm:w-[340px] bg-white border border-[#30261C]/15 rounded-[24px] shadow-[0_16px_40px_rgba(48,38,28,0.12)] z-50 overflow-hidden py-3"
             >
               <div className="max-h-[300px] overflow-y-auto pr-1 scrollbar-thin">
                 {categories.map((category) => {
@@ -134,7 +135,7 @@ export const ProjectsGrid = () => {
                         setSelectedCategory(category);
                         setIsOpen(false);
                       }}
-                      className="flex items-center justify-between w-full px-5 py-3 text-left transition-colors duration-200 hover:bg-[#30261C]/5 cursor-pointer"
+                      className="flex items-center justify-between w-full px-5 py-3 text-left transition-colors duration-200 hover:bg-[#ff5100]/5 cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
                         <span
@@ -144,7 +145,7 @@ export const ProjectsGrid = () => {
                         />
                         <span
                           className={`text-[15px] font-medium transition-colors duration-200 ${
-                            isActive ? "text-[#30261C] font-semibold" : "text-[#30261C]/60 hover:text-[#30261C]"
+                            isActive ? "text-[#ff5100] font-semibold" : "text-[#30261C]/60 hover:text-[#ff5100]"
                           }`}
                         >
                           {category}
