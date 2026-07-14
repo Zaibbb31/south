@@ -59,7 +59,7 @@ export function AboutIntro() {
             whileInView={{ opacity: 1, scaleX: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="w-full border-t border-[#000000]/10 mb-10 md:mb-12 origin-left" 
+            className="w-full border-t border-[#30261c]/10 mb-10 md:mb-12 origin-left" 
           />
 
           <div className="w-full max-w-[950px]">

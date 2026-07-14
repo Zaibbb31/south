@@ -13,7 +13,7 @@ const GreenCrossIcon = () => (
 
 const MissionCard = ({ isMobile = false }) => (
   <div className={`bg-[#111111] rounded-[24px] p-8 md:p-10 flex flex-col justify-center relative overflow-hidden shadow-sm h-full ${!isMobile ? 'min-h-[220px]' : ''}`}>
-    <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#000000] to-[#111111] pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#30261c] to-[#111111] pointer-events-none" />
     <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-white/5 to-transparent rounded-full blur-3xl pointer-events-none" />
     
     <div className="relative z-10">

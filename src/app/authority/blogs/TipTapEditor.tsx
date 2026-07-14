@@ -106,7 +106,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
 
     // Color options
     const colors = [
-        { name: 'Default', value: '#000000' },
+        { name: 'Default', value: '#30261c' },
         { name: 'Gray', value: '#4B5563' },
         { name: 'Red', value: '#EF4444' },
         { name: 'Orange', value: '#F97316' },

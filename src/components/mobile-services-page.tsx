@@ -158,7 +158,7 @@ export const MobileServicesPage = () => {
               {/* Arrow */}
               <div className="w-[42px] h-[42px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] text-white flex items-center justify-center shadow-[0px_3px_8px_rgba(255,81,0,0.2)] transition-all duration-300 group-hover:scale-105 shrink-0">
                 <svg 
-                  className="w-4.5 h-4.5" 
+                  className="w-5 h-5" 
                   fill="none" 
                   stroke="currentColor" 
                   strokeWidth={2.5} 

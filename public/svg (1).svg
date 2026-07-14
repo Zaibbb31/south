@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 917.14 480.88">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #f05523;
+      }
+
+      .st1, .st2 {
+        fill: #fffef1;
+      }
+
+      .st3 {
+        font-family: Poppins-Regular, Poppins;
+        font-size: 58.25px;
+        letter-spacing: .51em;
+      }
+
+      .st3, .st4 {
+        fill: #30261c;
+      }
+
+      .st4 {
+        font-family: NeulisCursive-Bold, 'Neulis Cursive';
+      }
+
+      .st4, .st2 {
+        font-size: 109.85px;
+        font-weight: 700;
+      }
+
+      .st2 {
+        font-family: Poppins-Bold, Poppins;
+      }
+    </style>
+  </defs>
+  <rect class="st0" width="917.14" height="480.88"/>
+  <text class="st4" transform="translate(45.36 359.75)"><tspan x="0" y="0">EDGE</tspan></text>
+  <text class="st2" transform="translate(46.81 264.86)"><tspan x="0" y="0">SOUTHERN</tspan></text>
+  <text class="st3" transform="translate(47.34 416.27)"><tspan x="0" y="0">MARKETING</tspan></text>
+  <polygon class="st1" points="102.17 59.07 102.17 69.96 62.14 69.96 62.14 137.39 51.23 137.39 51.23 59.07 102.17 59.07"/>
+  <polygon class="st1" points="799.83 416.24 799.83 405.35 839.86 405.35 839.86 337.92 850.77 337.92 850.77 416.24 799.83 416.24"/>
+  <polygon class="st1" points="799.96 58.3 799.96 69.19 839.99 69.19 839.99 136.62 850.9 136.62 850.9 58.3 799.96 58.3"/>
+</svg>

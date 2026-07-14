@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { articles } from "@/data/articles";
 import { services } from "@/data/services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebookF, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // Local SVGs for pixel-perfect vector representation without extra deps
 const EnvelopeIcon = () => (
-  <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-  </svg>
+  <FontAwesomeIcon icon={faEnvelope} className="w-3.5 h-3.5 text-white/70" />
 );
 
 const MapPinIcon = () => (
@@ -31,18 +31,18 @@ export const MobileFooter = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <footer className="w-full bg-[#000000] text-[#a3a3a3] px-6 pt-12 pb-8 flex flex-col relative overflow-hidden font-sans" style={{ zoom: 0.8 }}>
+    <footer className="w-full bg-[#30261c] text-[#a3a3a3] px-6 pt-12 pb-8 flex flex-col relative overflow-hidden font-sans" style={{ zoom: 0.8 }}>
       
       {/* Brand & Intro */}
       <div className="flex flex-col gap-4 mb-8">
         <Link href="/" className="inline-block w-fit">
-          <div className="flex items-end select-none">
-            <span className="text-[38px] font-black tracking-tighter text-white leading-none">seven</span>
-            <div className="flex flex-col items-start leading-none mb-0.5 ml-0.5">
-              <span className="text-[34px] font-light tracking-tighter text-white/95 leading-none">52</span>
-              <span className="text-[7.5px] tracking-[0.18em] text-white/50 uppercase leading-none font-bold mt-1">digital agency</span>
-            </div>
-          </div>
+          <Image
+            src="/svg (1).svg"
+            alt="Southern Edge Marketing Logo"
+            width={140}
+            height={73}
+            className="h-auto w-36 object-contain hover:opacity-90 transition-opacity"
+          />
         </Link>
         <p className="text-[16px] leading-relaxed text-white/70">
           The revenue growth agency. <br />
@@ -149,7 +149,7 @@ export const MobileFooter = () => {
           <Link href="/privacy" className="hover:text-white transition-colors duration-300">Cookie Policy</Link>
         </div>
         <div>
-          <span>© Seven52 | Built for businesses that intend to lead.</span>
+          <span>© Southern Edge Marketing | Built for businesses that intend to lead.</span>
         </div>
       </div>
 

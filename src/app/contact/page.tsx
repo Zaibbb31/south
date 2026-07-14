@@ -4,10 +4,7 @@ import { DesktopFooter } from "@/components/desktop-footer";
 import { MobileNav } from "@/components/mobile-nav";
 import { MobileFooter } from "@/components/mobile-footer";
 import { countryCodes } from "@/lib/countryCodes";
-import { NameInput } from "@/components/name-input";
-import { PhoneInput } from "@/components/phone-input";
-import { PhoneQrButton } from "@/components/phone-qr-button";
-import { MobileContactForm, DesktopContactForm } from "@/components/contact-forms";
+import { ContactUsWidget } from "@/components/contact-forms";
 
 import { Metadata } from "next";
 
@@ -57,46 +54,18 @@ export default function Contact() {
             </h1>
           </div>
 
-          {/* Form Card */}
-          <div className="w-full bg-[#ffe5b4] rounded-[20px] p-5 pt-6 pb-6 mb-8 relative shadow-sm">
-            <h2 className="text-[20px] font-semibold text-black mb-6 tracking-tight">
-              START A PROJECT :
-            </h2>
-            
-            <MobileContactForm />
+          <div className="w-full mb-8">
+            <ContactUsWidget />
           </div>
 
-          {/* Description and Contact Details */}
-          <div className="w-full flex flex-col gap-12 pr-6">
-            <div className="flex flex-col gap-4">
-              <p className="text-[28px] font-medium text-black leading-tight tracking-tight">
-                Big ideas deserve better than average.
-              </p>
-              <p className="text-[22px] font-normal text-black/65 leading-snug">
-                Need a website that converts? A brand that stands out? Marketing that actually gets noticed?
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-5">
-              <p className="text-[20px] font-medium text-black/65">Contact Details</p>
-              <div className="flex flex-col gap-3 font-normal text-black leading-tight">
-                <a href="tel:+919899238237" className="text-[18px] hover:text-[#ff5100] transition-colors">+91 9899238237</a>
-                <p className="text-[18px]">info@southernedgemarketing.com</p>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex flex-row gap-8 mt-4">
-              <a href="/contact" className="text-black hover:text-[#ff5100] transition-colors" aria-label="Instagram">
-                <InstagramIcon />
-              </a>
-              <a href="/contact" className="text-black hover:text-[#ff5100] transition-colors" aria-label="LinkedIn">
-                <LinkedinIcon />
-              </a>
-              <a href="/contact" className="text-black hover:text-[#ff5100] transition-colors" aria-label="Twitter/X">
-                <XIcon />
-              </a>
-            </div>
+          {/* Description and Tagline */}
+          <div className="w-full flex flex-col gap-4 mt-4 pr-4">
+            <p className="text-[26px] font-medium text-black leading-tight tracking-tight">
+              Big ideas deserve better than average.
+            </p>
+            <p className="text-[18px] font-normal text-black/65 leading-snug">
+              Need a website that converts? A brand that stands out? Marketing that actually gets noticed?
+            </p>
           </div>
         </section>
 
@@ -158,45 +127,8 @@ export default function Contact() {
             </h1>
           </div>
 
-          {/* Form and Contact Details Split */}
-          <div className="flex w-full justify-between gap-12 lg:gap-24 mb-16">
-            
-            {/* Left: Contact Details */}
-            <div className="flex flex-col w-[350px] shrink-0 mt-8">
-              <p className="text-[24px] lg:text-[28px] text-black/65 font-medium mb-6">
-                Contact Details
-              </p>
-              <div className="flex flex-col gap-4 text-black mb-16 font-normal">
-                <PhoneQrButton phoneNumber="+91 9899238237" className="text-[16px] lg:text-[18px] hover:text-[#ff5100] transition-colors" />
-                <p className="text-[16px] lg:text-[18px]">info@southernedgemarketing.com</p>
-              </div>
-
-              {/* Social Links */}
-              <div className="flex flex-row gap-8">
-                <a href="/contact" className="text-black hover:text-[#ff5100] transition-colors" aria-label="Instagram">
-                  <InstagramIcon />
-                </a>
-                <a href="/contact" className="text-black hover:text-[#ff5100] transition-colors" aria-label="LinkedIn">
-                  <LinkedinIcon />
-                </a>
-                <a href="/contact" className="text-black hover:text-[#ff5100] transition-colors" aria-label="Twitter/X">
-                  <XIcon />
-                </a>
-              </div>
-            </div>
-
-            {/* Right: Form Card */}
-            <div className="flex-1 bg-[#ffe5b4] rounded-[24px] p-8 lg:p-10 relative shadow-sm max-w-[850px]">
-              <h2 className="text-[28px] lg:text-[36px] font-semibold text-black mb-8 tracking-tight">
-                START A PROJECT :
-              </h2>
-              
-              <DesktopContactForm />
-
-              <p className="text-center text-[13px] lg:text-[14px] text-black/80 mt-6 tracking-wide">
-                By submitting this form, you agree to our <span className="font-semibold cursor-pointer hover:underline">Terms of Service</span> and <span className="font-semibold cursor-pointer hover:underline">Privacy Policy.</span>
-              </p>
-            </div>
+          <div className="w-full mb-16">
+            <ContactUsWidget />
           </div>
         </section>
 

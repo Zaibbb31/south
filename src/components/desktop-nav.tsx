@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const ArrowRightIcon = () => (
@@ -32,9 +33,13 @@ export const DesktopNav = () => {
         {/* Logo */}
         <div className="flex items-center shrink-0">
           <Link href="/">
-            <div className="h-9 w-9 rounded-full border-2 border-white bg-white/20 flex items-center justify-center cursor-pointer">
-              <span className="text-white text-xs font-bold">SM</span>
-            </div>
+            <Image
+              src="/SEM LOGO.svg"
+              alt="SEM Logo"
+              width={50}
+              height={50}
+              className="h-12 w-12 cursor-pointer transition-transform"
+            />
           </Link>
         </div>
 
