@@ -247,6 +247,7 @@ export const projects: Project[] = [
     client: "Adorna Casa Ltd.",
     duration: "8 Weeks",
     services: "E-Commerce Development, Responsive Design, Branding",
+    websiteUrl: "https://adornocasa.com/?srsltid=AfmBOorvxNU5vZFcK6yysAqy3qMUvG8rAUygA7ePLBE0UOBkfeO4d8VA",
     image: "/project/Adorna_casa.svg",
     heroImage: "/project/Adorna_casa.svg",
     gallery: []
@@ -260,6 +261,7 @@ export const projects: Project[] = [
     client: "Aerolume Systems",
     duration: "7 Weeks",
     services: "Front-End Development, Custom Animations, Interaction Design",
+    websiteUrl: "https://aerolume.in/",
     image: "/project/Aerolume.svg",
     heroImage: "/project/Aerolume.svg",
     gallery: []
@@ -273,6 +275,7 @@ export const projects: Project[] = [
     client: "Anyadha Brands",
     duration: "5 Weeks",
     services: "Web Development, Search Engine Optimization, UI Design",
+    websiteUrl: "https://anyadha.in/",
     image: "/project/Anyadha.svg",
     heroImage: "/project/Anyadha.svg",
     gallery: []
@@ -286,6 +289,7 @@ export const projects: Project[] = [
     client: "Bloom Cafes",
     duration: "4 Weeks",
     services: "Full-Stack Development, E-Commerce Integrations, UI/UX",
+    websiteUrl: "https://bloomcafes.com/",
     image: "/project/Bloom.svg",
     heroImage: "/project/Bloom.svg",
     gallery: []
@@ -313,6 +317,7 @@ export const projects: Project[] = [
     client: "BUNT India",
     duration: "4 Weeks",
     services: "Branding, Web Development, Responsive Layouts",
+    websiteUrl: "https://buntindia.com/?srsltid=AfmBOoqNGPi3X1DoYyAnsBG5rNbWdMIWT0duzqnmeipNPmVR_86oEkg1",
     image: "/project/Bunt.svg",
     heroImage: "/project/Bunt.svg",
     gallery: []
@@ -368,6 +373,7 @@ export const projects: Project[] = [
     client: "Foire",
     duration: "4 Weeks",
     services: "Web Design, Interactive Showroom, Web Development",
+    websiteUrl: "https://foire.in/",
     image: "/project/Foire.svg",
     heroImage: "/project/Foire.svg",
     gallery: []
@@ -381,6 +387,7 @@ export const projects: Project[] = [
     client: "House of Nihalkhera",
     duration: "4 Weeks",
     services: "Product Showcase, Web Development, UI/UX Design",
+    websiteUrl: "https://houseofnihalkhera.com/",
     image: "/project/HONK.svg",
     heroImage: "/project/HONK.svg",
     gallery: []
@@ -421,6 +428,7 @@ export const projects: Project[] = [
     client: "Mama Jama Foods",
     duration: "8 Weeks",
     services: "Interactive Web Portal, Web Development, Branding",
+    websiteUrl: "https://mamajama.in/?srsltid=AfmBOoqb1zRHM1fhF7sMLNNOVNejSXenKArBn3mMjlDZbmrhmqrsVfRO",
     image: "/project/Mama_jama.svg",
     heroImage: "/project/Mama_jama.svg",
     gallery: []
@@ -434,6 +442,7 @@ export const projects: Project[] = [
     client: "Oud Aromas",
     duration: "9 Weeks",
     services: "Luxury E-Commerce, Custom Checkout, Web Design",
+    websiteUrl: "https://theoudqua.com/",
     image: "/project/Oud.svg",
     heroImage: "/project/Oud.svg",
     gallery: []
@@ -460,6 +469,7 @@ export const projects: Project[] = [
     client: "SEXSEA",
     duration: "4 Weeks",
     services: "Web Development, Shopping Catalog, Interactive Filters",
+    websiteUrl: "https://sexsea.in/?srsltid=AfmBOorfCiq6LkpthjuL1F9ZfUpaJcnnHQW1s-7tQSqdvjxQWeQ5WumR",
     image: "/project/Sexsea.svg",
     heroImage: "/project/Sexsea.svg",
     gallery: []
@@ -473,6 +483,7 @@ export const projects: Project[] = [
     client: "The Fat Cookie Chef",
     duration: "4 Weeks",
     services: "E-Commerce Store, Dynamic Cart, Performance Optimization",
+    websiteUrl: "https://thefatcookiechef.com/",
     image: "/project/The_fat_cookie.svg",
     heroImage: "/project/The_fat_cookie.svg",
     gallery: []
