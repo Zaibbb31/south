@@ -37,7 +37,7 @@ export const MobileFooter = () => {
       <div className="flex flex-col gap-4 mb-8">
         <Link href="/" className="inline-block w-fit">
           <Image
-            src="/svg (1).svg"
+            src="/SEM_LOGO_FOOTER.svg"
             alt="Southern Edge Marketing Logo"
             width={140}
             height={73}

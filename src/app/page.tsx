@@ -1,6 +1,7 @@
 import { MobileNav } from "@/components/mobile-nav";
 import { MobileHero } from "@/components/mobile-hero";
 import { MobileIntegrations } from "@/components/mobile-integrations";
+import { MobileClientLogos, DesktopClientLogos } from "@/components/client-logos";
 
 import { MobileStats } from "@/components/mobile-stats";
 import { MobileComparison } from "@/components/mobile-comparison";
@@ -38,6 +39,7 @@ export default function Home() {
         <MobileHero />
         <div style={{ zoom: 0.8 }}>
           <MobileIntegrations />
+          <MobileClientLogos />
           <MobileStats />
           <MobileComparison />
           <MobileCaseStudies />
@@ -54,6 +56,7 @@ export default function Home() {
         <DesktopHero />
         <div style={{ zoom: 0.8 }}>
           <DesktopIntegrations />
+          <DesktopClientLogos />
           <DesktopStats />
           <DesktopComparison />
           <DesktopCaseStudies />

@@ -5,7 +5,7 @@ import ColorBends from "./ColorBends";
 
 export function MobileHero() {
   return (
-    <div className="w-full flex flex-col items-center pt-[100px] pb-6 relative overflow-hidden">
+    <div className="w-full flex flex-col items-center pt-[130px] pb-20 relative overflow-hidden">
       {/* Background ColorBends */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <ColorBends
@@ -42,13 +42,13 @@ export function MobileHero() {
 
       {/* CTA Button */}
       <div className="mt-6 z-10">
-        <Link href="/contact" className="w-full relative z-20">
+        <Link href="/contact" className="relative z-20">
           <button 
-            className="w-full relative h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] group cursor-pointer"
+            className="relative w-[222px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] group cursor-pointer"
             aria-label="Start Growing"
           >
             {/* Inner Left Pill */}
-            <div className="absolute left-[0px] top-0 w-[calc(100%-60px)] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] z-10">
+            <div className="absolute left-[0px] top-0 w-[157px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] z-10">
               <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
               <span className="font-medium text-[18px] text-white tracking-tight whitespace-nowrap">
                 Start Growing
@@ -94,26 +94,6 @@ export function MobileHero() {
           <p className="text-[15px] text-black">
             Helped over <span className="font-semibold">100+ businesses</span>
           </p>
-        </div>
-      </div>
-
-      {/* Logo Ticker */}
-      <div className="w-full relative overflow-hidden mt-8 pb-4 z-10">
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#fffff0] to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#fffff0] to-transparent z-20 pointer-events-none" />
-        <div className="animate-logo-slide flex items-center w-max">
-          {Array.from({ length: 30 }).map((_, index) => {
-            const logoIndex = (index % 15) + 1;
-            return (
-              <div key={index} className="h-16 w-32 mx-[12px] relative flex items-center justify-center shrink-0">
-                <img 
-                  src={`/clientlogo/logo-${logoIndex}.png`} 
-                  alt={`Client Logo ${logoIndex}`} 
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
-            );
-          })}
         </div>
       </div>
     </div>
