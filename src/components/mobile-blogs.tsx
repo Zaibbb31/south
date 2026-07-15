@@ -48,7 +48,7 @@ export const MobileBlogs = ({ blogs = [] }: { blogs?: BlogItem[] }) => {
       
       {/* Hero Section */}
       <div className="flex flex-col items-start w-full px-6 gap-6 mb-10 z-10 relative">
-        <span className="text-[12px] font-bold tracking-[1.5px] uppercase text-black/55">
+        <span className="text-[12px] font-bold tracking-[1.5px] uppercase text-orange-500">
           SOUTHERN EDGE MARKETING BLOGS
         </span>
         
@@ -97,7 +97,7 @@ export const MobileBlogs = ({ blogs = [] }: { blogs?: BlogItem[] }) => {
                 onClick={() => setActiveFilter(filter)}
                 className={`px-4 py-2.5 rounded-full text-[12px] font-medium transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-[#0d052d] text-white border border-transparent shadow-sm"
+                    ? "bg-orange-500 text-white  border-transparent shadow-sm"
                     : "bg-transparent text-black/70 border border-black/10 hover:border-black/35"
                 }`}
               >

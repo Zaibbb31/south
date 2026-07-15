@@ -98,7 +98,7 @@ export const MobileServicesPage = () => {
                 <span className="text-[18px] font-medium text-[#ff5100]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="text-[10px] text-black/20 select-none">●</span>
+                
               </div>
               
               {/* Stat */}
@@ -148,7 +148,7 @@ export const MobileServicesPage = () => {
                 {service.tags.map((tag, tagIndex) => (
                   <span 
                     key={tagIndex} 
-                    className="px-3 py-1.5 border border-black/10 rounded-full text-black/50 text-[12px] font-medium cursor-default"
+                    className="px-3 py-1.5 border border-orange-500 rounded-full text-black/50 text-[12px] font-medium cursor-default"
                   >
                     {tag}
                   </span>

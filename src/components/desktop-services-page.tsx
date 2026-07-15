@@ -99,7 +99,7 @@ export const DesktopServicesPage = () => {
               <span className="text-[20px] md:text-[24px] font-medium text-[#ff5100] leading-none">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="text-[12px] text-black/20 select-none">●</span>
+              
             </div>
 
             {/* 2. Center Column: Main Content */}
@@ -137,7 +137,7 @@ export const DesktopServicesPage = () => {
                 {service.tags.map((tag, tagIndex) => (
                   <span 
                     key={tagIndex} 
-                    className="px-4 py-2 border border-black/10 rounded-full text-black/50 text-[13px] md:text-[14px] font-medium cursor-default group-hover:border-black/20 transition-colors"
+                    className="px-4 py-2 border border-orange-500 rounded-full text-black/50 text-[13px] md:text-[14px] font-medium cursor-default  transition-colors"
                   >
                     {tag}
                   </span>

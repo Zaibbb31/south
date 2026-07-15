@@ -58,7 +58,7 @@ export const DesktopBlogs = ({ blogs = [] }: { blogs?: BlogItem[] }) => {
       <div className="flex flex-col lg:flex-row w-full gap-12 lg:gap-16 pt-32 lg:pt-36 mb-16 max-w-[1280px] mx-auto items-start">
         {/* Left Side: Brand Text */}
         <div className="flex flex-col w-full lg:w-[50%] justify-center pt-2">
-          <span className="text-[13px] md:text-[14px] font-bold tracking-[2px] uppercase text-black/55 mb-5 block">
+          <span className="text-[13px] md:text-[14px] font-bold tracking-[2px] uppercase text-orange-500 mb-5 block">
             SOUTHERN EDGE MARKETING BLOGS
           </span>
           <h1 className="text-[52px] md:text-[70px] lg:text-[65px] font-medium text-black leading-[1.05] tracking-tight mb-8">
@@ -110,7 +110,7 @@ Explore articles on UI/UX design, modern web development, branding, performance,
                 onClick={() => setActiveFilter(filter)}
                 className={`px-5 py-2.5 rounded-full text-[13px] md:text-[14px] font-medium transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-[#0d052d] text-white border border-transparent shadow-sm"
+                    ? "bg-orange-500 text-white  border-transparent shadow-sm"
                     : "bg-transparent text-black/70 border border-black/10 hover:border-black/35"
                 }`}
               >
