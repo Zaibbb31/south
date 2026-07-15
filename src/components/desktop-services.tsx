@@ -59,7 +59,7 @@ const services = [
 
 export const DesktopServices = () => {
   return (
-    <section className="w-full bg-[#fffff0] pt-24 pb-20 px-8 lg:px-[90px] flex justify-center relative z-10 mt-16">
+    <section className="w-full bg-[#fffff0] pt-2 pb-20 px-8 lg:px-[90px] flex justify-center relative z-10 mt-16">
       <div className="w-full max-w-[1400px] flex items-start justify-between relative">
         
         {/* Left Sticky Column */}

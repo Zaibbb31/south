@@ -191,7 +191,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <main className="w-full pt-32 lg:pt-48 px-6 lg:px-[90px] pb-24">
         {/* Header Title & Visit Website Button */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 lg:mb-12 border-b border-[#30261C]/10 pb-6 lg:pb-8">
-          <h1 className="text-[50px] lg:text-[110px] xl:text-[130px] font-medium leading-[1] text-[#30261C] uppercase tracking-tighter">
+          <h1 className="text-[30px] lg:text-[50px] xl:text-[60px] font-medium leading-[1] text-[#30261C] uppercase tracking-tighter">
             {project.title}
           </h1>
 
@@ -205,9 +205,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     href={project.websiteUrl || `https://${project.slug}.com`} 
                     target="_blank" 
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#30261C] hover:bg-[#ff5100] text-white rounded-full transition-all duration-300 font-semibold text-[15px] tracking-wide shadow-md hover:shadow-lg active:scale-[0.98]"
                   >
-                    VISIT WEBSITE <span className="text-[18px]">↗</span>
+                    <button 
+                      className="relative w-[222px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer"
+                      aria-label="Visit Website"
+                    >
+                      {/* Inner Left Pill with right shadow */}
+                      <div className="absolute left-[0px] top-0 w-[165px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
+                        <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
+                        <span className="font-semibold text-[13px] text-white tracking-tight uppercase whitespace-nowrap pt-0.5">
+                          Visit Website
+                        </span>
+                      </div>
+                      
+                      {/* Right Arrow Icon */}
+                      <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
+                        <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                      </div>
+                    </button>
                   </a>
                 </div>
               );

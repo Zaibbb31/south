@@ -1,98 +1,124 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion, PanInfo } from "framer-motion";
 
-const ArrowRightIcon = () => (
-  <svg className="w-[14px] h-[14px] text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-  </svg>
-);
+interface ProjectCardProps {
+  slug: string;
+  title: string;
+  category: string;
+  duration: string;
+  image: string;
+}
 
-const images = [
-  "/website.jpg",
-  "/meta.jpg",
-  "/photoshoot.jpg"
-];
+const ProjectCard: React.FC<ProjectCardProps> = ({ slug, title, category, duration, image }) => {
+  return (
+    <Link 
+      href={`/projects/${slug}`}
+      className="group flex flex-col w-full cursor-pointer"
+    >
+      {/* Image Container with rounded corners */}
+      <div className="w-full aspect-[3/2] rounded-[16px] md:rounded-[24px] overflow-hidden mb-5 bg-[#eaeaea] relative">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.03]"
+        />
+        
+        {/* Category Pill Overlay on Bottom Right */}
+        <div className="absolute bottom-4 right-4 md:bottom-5 md:right-5 px-3 py-1.5 rounded-full bg-[#1b1b1b]/35 border border-white/10 text-white text-[9px] md:text-[10px] font-bold tracking-widest uppercase">
+          {category}
+        </div>
+      </div>
+      
+      {/* Text Details below the image */}
+      <div className="flex flex-col gap-1 px-1 pb-4">
+        <span className="text-[12px] md:text-[13px] font-semibold text-[#30261C]/50 font-sans tracking-wide">
+          {duration}
+        </span>
+        <h3 className="text-[20px] md:text-[24px] font-bold text-[#30261C] tracking-tight uppercase leading-none">
+          {title}
+        </h3>
+      </div>
+    </Link>
+  );
+};
 
 export const MobileCaseStudies = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleDragEnd = (e: any, { offset, velocity }: PanInfo) => {
-    const swipe = offset.x;
-    if (swipe < -40) {
-      setIndex((prev) => (prev + 1) % images.length);
-    } else if (swipe > 40) {
-      setIndex((prev) => (prev - 1 + images.length) % images.length);
+  const selectedProjects = [
+    {
+      slug: "ama",
+      title: "AMA Legal Solutions",
+      category: "Website Development",
+      duration: "6 weeks",
+      image: "/project/AMA.svg"
+    },
+    {
+      slug: "the-fat-cookie",
+      title: "The Fat Cookie",
+      category: "Shopify",
+      duration: "8 weeks",
+      image: "/project/The_fat_cookie.svg"
+    },
+    {
+      slug: "sage-perfume",
+      title: "Sage Perfume",
+      category: "Photography",
+      duration: "5 weeks",
+      image: "/SAGE_Perfumes/1.jpg"
+    },
+    {
+      slug: "jsv",
+      title: "JSV Branding",
+      category: "Branding",
+      duration: "6 weeks",
+      image: "/JSV/5.jpg"
     }
-  };
+  ];
 
   return (
-    <section className="w-full relative h-[600px] bg-[#f6f6f6] overflow-hidden">
-      
-      {/* Draggable Slider Background */}
-      <motion.div
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.2}
-        onDragEnd={handleDragEnd}
-        animate={{ x: `-${index * 100}%` }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute top-0 left-0 w-full h-full flex cursor-grab active:cursor-grabbing"
-      >
-        {images.map((img, i) => (
-          <div 
-            key={i} 
-            className="min-w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('${img}')` }}
-          />
-        ))}
-      </motion.div>
-
-      {/* Center Box Content - Glassmorphism Square */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-auto py-10 px-6 bg-white/60 backdrop-blur-2xl rounded-[24px] border border-white/50 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center z-10 text-center pointer-events-none">
+    <section className="w-full bg-[#fffff0] px-6 md:px-10 lg:px-[90px] py-16 md:py-24 max-w-[1440px] mx-auto">
+      {/* Top Header */}
+      <div className="flex flex-col items-center mb-16 w-full">
+        <p className="font-medium text-[20px] lg:text-[24px] mb-8 tracking-wide">
+          <span className="text-[#ff5100]">[</span>
+          <span className="text-black mx-2">PROJECTS</span>
+          <span className="text-[#ff5100]">]</span>
+        </p>
         
-        {/* Text Group */}
-        <div className="flex flex-col items-center mb-6">
-          <div className="flex items-baseline justify-center">
-            <span className="text-[48px] leading-[1] font-bold text-[#0f0f0f] tracking-tight">1500+</span>
-          </div>
-          <span className="text-[28px] leading-[1] font-semibold text-[#0f0f0f] tracking-tight mt-1">Projects</span>
-          <span className="text-[28px] leading-[1] font-semibold text-[#0f0f0f] tracking-tight mt-1">Delivered</span>
+        {/* Subtle divider line across the screen */}
+        <div className="w-full h-px bg-black/5 mb-10 max-w-[1200px]" />
+        
+        <h2 className="text-[60px] lg:text-[80px] xl:text-[104px] font-semibold text-black leading-none tracking-tight text-center uppercase">
+          CASE STUDIES
+        </h2>
+      </div>
+
+      {/* Grid of Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+        {/* Row 1 */}
+        <div className="pb-8 border-b border-[#30261C]/15 md:border-b-0">
+          <ProjectCard {...selectedProjects[0]} />
+        </div>
+        <div className="pb-8 border-b border-[#30261C]/15 md:border-b-0">
+          <ProjectCard {...selectedProjects[1]} />
         </div>
 
-        {/* Explore Projects Button */}
-        <Link href="/projects" className="pointer-events-auto">
-          <button 
-            className="relative w-[222px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] overflow-hidden shadow-[0px_6px_16px_rgba(255,81,0,0.35)] hover:shadow-[0px_8px_20px_rgba(255,81,0,0.5)] transition-shadow group cursor-pointer"
-            aria-label="Explore Projects here"
-          >
-            {/* Inner Left Pill with right shadow */}
-            <div className="absolute left-[0px] top-0 w-[165px] h-[63px] rounded-full bg-gradient-to-b from-[#ffa479] to-[#ff5100] drop-shadow-[4px_0px_6px_rgba(0,0,0,0.25)] flex items-center justify-center gap-[6px] transform group-hover:translate-x-[3px] transition-transform duration-300 z-10">
-              <div className="w-[8px] h-[8px] rounded-full bg-[#00ff00] shrink-0 shadow-[0_0_8px_#00ff00] animate-pulse" />
-              <span className="font-medium text-[13px] text-white tracking-tight whitespace-nowrap">
-                Explore Projects here
-              </span>
-            </div>
-            
-            {/* Right Arrow Icon */}
-            <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center justify-center transform group-hover:translate-x-[3px] transition-transform duration-300 z-0">
-              <svg className="w-[21px] h-[21px] text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
-            </div>
-          </button>
-        </Link>
+        {/* Row 1 Divider for Desktop */}
+        <div className="hidden md:block col-span-2 h-px bg-[#30261C]/15 -mt-6 mb-2" />
 
+        {/* Row 2 */}
+        <div className="pb-8 border-b border-[#30261C]/15 md:border-b-0">
+          <ProjectCard {...selectedProjects[2]} />
+        </div>
+        <div className="pb-8 border-b border-[#30261C]/15 md:border-b-0">
+          <ProjectCard {...selectedProjects[3]} />
+        </div>
+
+        {/* Row 2 Divider for Desktop */}
+        <div className="hidden md:block col-span-2 h-px bg-[#30261C]/15 -mt-6 mb-2" />
       </div>
     </section>
   );
 };
+
