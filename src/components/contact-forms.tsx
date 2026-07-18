@@ -184,7 +184,7 @@ export const ContactUsWidget = () => {
           <button 
             disabled={loading} 
             type="submit" 
-            className="w-full py-4 rounded-full text-white font-bold text-[18px] tracking-wide bg-gradient-to-r from-[#f86f2b] to-[#4d0e13]  active:scale-[0.99] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+            className="w-full py-4 rounded-full text-white font-bold text-[18px] tracking-wide bg-[#ff5100] active:scale-[0.99] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed mt-2"
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
@@ -213,7 +213,7 @@ export const ContactUsWidget = () => {
           {/* Email Us Button */}
           <a 
             href="mailto:info@southernedgemarketing.com" 
-            className="w-full max-w-[260px] py-3.5 rounded-full text-white font-bold text-[16px] tracking-wide bg-gradient-to-r from-[#f86f2b] to-[#4d0e13] active:scale-[0.99] transition-all text-center block"
+            className="w-full max-w-[260px] py-3.5 rounded-full text-white font-bold text-[16px] tracking-wide bg-[#ff5100] active:scale-[0.99] transition-all text-center block"
           >
             Email Us
           </a>
